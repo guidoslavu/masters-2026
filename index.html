@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE MASTERS 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:wght@400;500&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --augusta: #1a3a2a;
+      --augusta-mid: #22503b;
+      --augusta-light: #2d6b50;
+      --gold: #c9a84c;
+      --gold-light: #e0c06a;
+      --cream: #f9f4e8;
+      --azalea: #d4527a;
+      --azalea-light: #e87fa0;
+      --text-dark: #1a1a14;
+      --text-mid: #3d3d2e;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'EB Garamond', serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 0 48px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--augusta);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        135deg, transparent 0px, transparent 18px,
+        rgba(255,255,255,0.018) 18px, rgba(255,255,255,0.018) 19px
+      );
+      pointer-events: none;
+    }
+
+    .azalea-left {
+      position: absolute;
+      left: -10px;
+      bottom: -8px;
+      width: 140px;
+      height: 130px;
+      opacity: 0.92;
+      z-index: 2;
+    }
+
+    .azalea-right {
+      position: absolute;
+      right: -10px;
+      bottom: -8px;
+      width: 140px;
+      height: 130px;
+      opacity: 0.92;
+      z-index: 2;
+      transform: scaleX(-1);
+    }
+
+    .header-center {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 24px 150px 6px;
+    }
+
+    .header-flag { display: inline-block; margin-bottom: 10px; }
+
+    .header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      line-height: 1;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    }
+
+    .header-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      color: rgba(201,168,76,0.6);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    .header-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.4;
+      margin: 10px 32px 0;
+      position: relative;
+      z-index: 3;
+    }
+
+    .header-ornament {
+      text-align: center;
+      position: relative;
+      z-index: 3;
+      margin: -7px 0 0;
+    }
+
+    .header-ornament span {
+      background: var(--augusta);
+      padding: 0 12px;
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 6px;
+      opacity: 0.7;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 28px 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.6);
+      position: relative;
+      z-index: 3;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+      padding: 2px 10px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+    }
+
+    .live-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    /* ── SECTION DIVIDERS ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 16px 8px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      max-width: 130px;
+    }
+
+    .divider-line.left {
+      background: linear-gradient(to right, transparent, rgba(201,168,76,0.38));
+    }
+
+    .divider-line.right {
+      background: linear-gradient(to left, transparent, rgba(201,168,76,0.38));
+    }
+
+    .section-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--augusta);
+    }
+
+    /* ── PODIUM ── */
+    .podium-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.12fr 1fr;
+      gap: 8px;
+      padding: 8px 16px 16px;
+      align-items: end;
+    }
+
+    .podium-card {
+      background: var(--white);
+      border: 1px solid rgba(201,168,76,0.22);
+      padding: 14px 10px 14px;
+      text-align: center;
+    }
+
+    .podium-card.first {
+      border-color: var(--gold);
+      border-width: 1.5px;
+      background: linear-gradient(170deg, #fffcf0 0%, #fff 60%);
+      padding: 16px 10px 18px;
+    }
+
+    .podium-rank {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .podium-icon { font-size: 20px; margin-bottom: 6px; display: block; }
+
+    .podium-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--augusta);
+      margin-bottom: 4px;
+      line-height: 1.2;
+      min-height: 18px;
+    }
+
+    .podium-score {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--augusta);
+      line-height: 1;
+    }
+
+    .podium-score-label {
+      font-size: 10px; color: #aaa;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px;
+    }
+
+    .podium-estado {
+      font-size: 11px;
+      margin-top: 5px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ── LEADERBOARD ── */
+    .leaderboard-wrapper {
+      background: var(--white);
+      border: 1px solid rgba(201,168,76,0.22);
+      margin: 0 16px;
+      overflow: hidden;
+    }
+
+    .th-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 80px 52px 52px 52px 52px;
+      background: var(--augusta);
+      padding: 10px 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.7);
+      gap: 4px;
+    }
+
+    .th-row span { text-align: center; }
+    .th-row span:nth-child(2) { text-align: left; }
+
+    .player-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 80px 52px 52px 52px 52px;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      cursor: pointer;
+      transition: background 0.15s;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .player-row:last-child { border-bottom: none; }
+    .player-row:hover { background: rgba(201,168,76,0.06); }
+    .player-row.selected { background: rgba(212,82,122,0.05); }
+    .player-row.leader { background: rgba(201,168,76,0.04); }
+    .player-row.eliminado { opacity: 0.58; }
+
+    .pos-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px; font-weight: 600;
+      text-align: center; color: var(--text-mid);
+    }
+    .pos-num.top { color: var(--gold); }
+
+    .name-cell {
+      font-family: 'EB Garamond', serif;
+      font-size: 15px; font-weight: 500; color: var(--text-dark);
+    }
+
+    .score-cell {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 600;
+      text-align: center; color: var(--augusta);
+    }
+
+    .estado-badge {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      padding: 1px 5px;
+      border-radius: 2px;
+      font-family: 'Cormorant Garamond', serif;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    .badge-ok { background: rgba(34,80,59,0.1); color: var(--augusta-mid); }
+    .badge-ko { background: rgba(212,82,122,0.12); color: var(--azalea); }
+
+    .jug-cell {
+      font-family: 'EB Garamond', serif;
+      font-size: 12px; text-align: center; color: var(--text-mid);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* ── DETAIL PANEL ── */
+    .detail-panel {
+      background: var(--augusta);
+      color: var(--cream);
+      padding: 16px 20px 20px;
+      display: none;
+      border-top: 2px solid var(--azalea);
+      animation: slideIn 0.18s ease;
+    }
+
+    @keyframes slideIn { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
+
+    .detail-panel.open { display: block; }
+
+    .detail-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; color: var(--gold); margin-bottom: 4px;
+    }
+
+    .detail-estado-txt {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px; color: rgba(201,168,76,0.55);
+      letter-spacing: 0.1em; margin-bottom: 14px;
+    }
+
+    .detail-jugadores {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+    }
+
+    @media (min-width: 500px) {
+      .detail-jugadores { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .detail-jug-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 10px 8px; text-align: center;
+    }
+
+    .detail-jug-label {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(201,168,76,0.5); font-family: 'Cormorant Garamond', serif; margin-bottom: 5px;
+    }
+
+    .detail-jug-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 13px; color: rgba(249,244,232,0.88); line-height: 1.3;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(100,100,80,0.5);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      margin-top: 16px;
+    }
+
+    .loading-msg {
+      text-align: center; padding: 48px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(100,100,80,0.4);
+    }
+
+    .clock {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; letter-spacing: 0.1em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .azalea-left, .azalea-right { width: 100px; height: 95px; }
+      .header-center { padding: 20px 110px 6px; }
+      .th-row, .player-row {
+        grid-template-columns: 32px 1fr 60px 38px 38px 38px 38px;
+        padding: 8px 10px;
+      }
+      .jug-cell { font-size: 10px; }
+      .podium-grid { gap: 6px; padding: 6px 10px 12px; }
+      .leaderboard-wrapper { margin: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header">
+
+    <!-- Azalea izquierda -->
+    <svg class="azalea-left" viewBox="0 0 140 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 130 Q38 102 50 86" stroke="#2d6b50" stroke-width="2.2" fill="none"/>
+      <path d="M58 130 Q62 106 72 88" stroke="#2d6b50" stroke-width="2" fill="none"/>
+      <path d="M16 130 Q22 108 33 90" stroke="#2d6b50" stroke-width="1.6" fill="none"/>
+      <path d="M80 130 Q79 112 76 96" stroke="#2d6b50" stroke-width="1.5" fill="none"/>
+      <ellipse cx="42" cy="97" rx="12" ry="5.5" fill="#2d6b50" transform="rotate(-30 42 97)" opacity="0.85"/>
+      <ellipse cx="65" cy="99" rx="11" ry="5" fill="#3a7a5a" transform="rotate(22 65 99)" opacity="0.8"/>
+      <ellipse cx="26" cy="94" rx="10" ry="4.5" fill="#2d6b50" transform="rotate(-42 26 94)" opacity="0.75"/>
+      <ellipse cx="74" cy="106" rx="8" ry="3.5" fill="#3a7a5a" transform="rotate(36 74 106)" opacity="0.7"/>
+      <g transform="translate(46,76)">
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#d4527a" transform="rotate(0)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#c23d68" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#e87fa0" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#d4527a" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#f0a0bc" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="4.5" fill="#ffe066"/>
+        <circle cx="0" cy="0" r="2.2" fill="#fff8d0"/>
+        <circle cx="0" cy="-5.5" r="1.1" fill="#c9a84c"/>
+        <circle cx="3.5" cy="-3.5" r="0.9" fill="#c9a84c"/>
+        <circle cx="-3.5" cy="-3.5" r="0.9" fill="#c9a84c"/>
+      </g>
+      <g transform="translate(74,74)">
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#e87fa0" transform="rotate(18)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#d4527a" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#f0a0bc" transform="rotate(162)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#d4527a" transform="rotate(234)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#e87fa0" transform="rotate(306)"/>
+        <circle cx="0" cy="0" r="3.8" fill="#ffe066"/>
+        <circle cx="0" cy="0" r="2" fill="#fff8d0"/>
+      </g>
+      <g transform="translate(28,86)">
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#f0a0bc" transform="rotate(0)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#e87fa0" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#d4527a" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#e87fa0" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#f0a0bc" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="3.2" fill="#ffe066"/>
+      </g>
+      <ellipse cx="83" cy="88" rx="5.5" ry="9" fill="#d4527a" transform="rotate(-12 83 88)" opacity="0.82"/>
+      <ellipse cx="87" cy="83" rx="4" ry="6.5" fill="#f0a0bc" transform="rotate(6 87 83)" opacity="0.72"/>
+      <ellipse cx="19" cy="80" rx="4.5" ry="7.5" fill="#e87fa0" transform="rotate(-22 19 80)" opacity="0.78"/>
+    </svg>
+
+    <!-- Azalea derecha (espejo) -->
+    <svg class="azalea-right" viewBox="0 0 140 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 130 Q38 102 50 86" stroke="#2d6b50" stroke-width="2.2" fill="none"/>
+      <path d="M58 130 Q62 106 72 88" stroke="#2d6b50" stroke-width="2" fill="none"/>
+      <path d="M16 130 Q22 108 33 90" stroke="#2d6b50" stroke-width="1.6" fill="none"/>
+      <path d="M80 130 Q79 112 76 96" stroke="#2d6b50" stroke-width="1.5" fill="none"/>
+      <ellipse cx="42" cy="97" rx="12" ry="5.5" fill="#2d6b50" transform="rotate(-30 42 97)" opacity="0.85"/>
+      <ellipse cx="65" cy="99" rx="11" ry="5" fill="#3a7a5a" transform="rotate(22 65 99)" opacity="0.8"/>
+      <ellipse cx="26" cy="94" rx="10" ry="4.5" fill="#2d6b50" transform="rotate(-42 26 94)" opacity="0.75"/>
+      <ellipse cx="74" cy="106" rx="8" ry="3.5" fill="#3a7a5a" transform="rotate(36 74 106)" opacity="0.7"/>
+      <g transform="translate(46,76)">
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#d4527a" transform="rotate(0)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#c23d68" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#e87fa0" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#d4527a" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#f0a0bc" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="4.5" fill="#ffe066"/>
+        <circle cx="0" cy="0" r="2.2" fill="#fff8d0"/>
+        <circle cx="0" cy="-5.5" r="1.1" fill="#c9a84c"/>
+        <circle cx="3.5" cy="-3.5" r="0.9" fill="#c9a84c"/>
+        <circle cx="-3.5" cy="-3.5" r="0.9" fill="#c9a84c"/>
+      </g>
+      <g transform="translate(74,74)">
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#e87fa0" transform="rotate(18)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#d4527a" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#f0a0bc" transform="rotate(162)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#d4527a" transform="rotate(234)"/>
+        <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#e87fa0" transform="rotate(306)"/>
+        <circle cx="0" cy="0" r="3.8" fill="#ffe066"/>
+        <circle cx="0" cy="0" r="2" fill="#fff8d0"/>
+      </g>
+      <g transform="translate(28,86)">
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#f0a0bc" transform="rotate(0)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#e87fa0" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#d4527a" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#e87fa0" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-7" rx="5" ry="8.5" fill="#f0a0bc" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="3.2" fill="#ffe066"/>
+      </g>
+      <ellipse cx="83" cy="88" rx="5.5" ry="9" fill="#d4527a" transform="rotate(-12 83 88)" opacity="0.82"/>
+      <ellipse cx="87" cy="83" rx="4" ry="6.5" fill="#f0a0bc" transform="rotate(6 87 83)" opacity="0.72"/>
+      <ellipse cx="19" cy="80" rx="4.5" ry="7.5" fill="#e87fa0" transform="rotate(-22 19 80)" opacity="0.78"/>
+    </svg>
+
+    <div class="header-center">
+      <div class="header-flag">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+          <circle cx="17" cy="17" r="16" stroke="#c9a84c" stroke-width="1" opacity="0.32"/>
+          <line x1="10" y1="7" x2="10" y2="28" stroke="#c9a84c" stroke-width="1.5"/>
+          <path d="M10 7 L24 12 L10 17Z" fill="#c9a84c" opacity="0.8"/>
+          <circle cx="17" cy="28" r="3" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+          <line x1="14" y1="28" x2="20" y2="28" stroke="#c9a84c" stroke-width="0.8" opacity="0.45"/>
+        </svg>
+      </div>
+      <div class="header-title">THE MASTERS 2026</div>
+      <div class="header-year">Augusta National · Competencia Interna</div>
+    </div>
+
+    <div class="header-divider"></div>
+    <div class="header-ornament"><span>✦ ✦ ✦</span></div>
+
+    <div class="header-meta">
+      <span class="live-badge"><span class="live-dot"></span>Live</span>
+      <span class="clock" id="clock">--:--:--</span>
+      <span>Clasificación en vivo</span>
+    </div>
+  </header>
+
+  <!-- ── PODIO ── -->
+  <div class="section-divider">
+    <div class="divider-line left"></div>
+    <span class="section-label">Podio</span>
+    <div class="divider-line right"></div>
+  </div>
+
+  <div class="podium-grid">
+    <div class="podium-card" id="pod-2nd">
+      <div class="podium-rank">2do Lugar</div>
+      <span class="podium-icon">🥈</span>
+      <div class="podium-name" id="pod-name-2">—</div>
+      <div class="podium-score" id="pod-score-2">—</div>
+      <div class="podium-score-label">Top 3 Score</div>
+      <div class="podium-estado" id="pod-estado-2"></div>
+    </div>
+    <div class="podium-card first" id="pod-1st">
+      <div class="podium-rank">Líder</div>
+      <span class="podium-icon">🏆</span>
+      <div class="podium-name" id="pod-name-1">—</div>
+      <div class="podium-score" id="pod-score-1">—</div>
+      <div class="podium-score-label">Top 3 Score</div>
+      <div class="podium-estado" id="pod-estado-1"></div>
+    </div>
+    <div class="podium-card" id="pod-3rd">
+      <div class="podium-rank">3er Lugar</div>
+      <span class="podium-icon">🥉</span>
+      <div class="podium-name" id="pod-name-3">—</div>
+      <div class="podium-score" id="pod-score-3">—</div>
+      <div class="podium-score-label">Top 3 Score</div>
+      <div class="podium-estado" id="pod-estado-3"></div>
+    </div>
+  </div>
+
+  <!-- ── CLASIFICACIÓN ── -->
+  <div class="section-divider">
+    <div class="divider-line left"></div>
+    <span class="section-label">Clasificación · Tocá para ver detalle</span>
+    <div class="divider-line right"></div>
+  </div>
+
+  <div class="leaderboard-wrapper">
+    <div class="th-row">
+      <span>Pos</span>
+      <span>Participante</span>
+      <span>Score</span>
+      <span>Jug 1</span>
+      <span>Jug 2</span>
+      <span>Jug 3</span>
+      <span>Jug 4</span>
+    </div>
+    <div id="leaderboard-body">
+      <div class="loading-msg">⛳ &nbsp; Cargando resultados...</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="opacity:0.4">
+      <circle cx="6" cy="6" r="5" fill="#d4527a"/><circle cx="6" cy="6" r="2" fill="#ffe066"/>
+    </svg>
+    Datos vía Google Sheets &nbsp;·&nbsp; Actualización cada 60s
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="opacity:0.4">
+      <circle cx="6" cy="6" r="5" fill="#d4527a"/><circle cx="6" cy="6" r="2" fill="#ffe066"/>
+    </svg>
+  </div>
+
+</div>
+
+<script>
+  // ── CONFIG ──
+  const SHEET_ID  = '1gHjZ28xijNBnevGTxnDOca6UCM9AOMOO1Ii8mMjTG5Y';
+  const SHEET_GID = '860655642';
+  const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${SHEET_GID}`;
+
+  // ── RELOJ ──
+  (function tick() {
+    const n = new Date(), p = x => String(x).padStart(2,'0');
+    document.getElementById('clock').textContent = `${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())}`;
+    setTimeout(tick, 1000);
+  })();
+
+  function parseScore(raw) {
+    if (raw === null || raw === undefined || raw === '') return null;
+    const n = Number(String(raw).trim().replace(/\s/g,'').replace('+',''));
+    return isNaN(n) ? null : n;
+  }
+
+  function fmtScore(n) {
+    if (n === null || n === undefined) return '—';
+    if (n === 0) return 'E';
+    return n > 0 ? '+' + n : String(n);
+  }
+
+  function estadoBadge(estado) {
+    if (!estado) return '';
+    const elim = estado.includes('ELIM') || estado.includes('❌');
+    return `<span class="estado-badge ${elim ? 'badge-ko' : 'badge-ok'}">${elim ? 'Eliminado' : 'En carrera'}</span>`;
+  }
+
+  async function fetchData() {
+    try {
+      const res  = await fetch(SHEET_URL);
+      const text = await res.text();
+      const json = JSON.parse(text.replace(/^[^\(]+\(/, '').replace(/\);\s*$/, ''));
+      const rows = json.table.rows;
+
+      const SKIP = ['PARTICIPANTE','🏅','Cargá','⛳','TOP 3','Cargá los'];
+      const players = [];
+
+      for (const row of rows) {
+        const cols = row.c;
+        if (!cols || !cols[0]?.v) continue;
+        const name = String(cols[0].v).trim();
+        if (SKIP.some(k => name.startsWith(k))) continue;
+        const score = parseScore(cols[5]?.v);
+        if (score === null) continue;
+
+        players.push({
+          name,
+          jug1:   cols[1]?.v ? String(cols[1].v).trim() : '—',
+          jug2:   cols[2]?.v ? String(cols[2].v).trim() : '—',
+          jug3:   cols[3]?.v ? String(cols[3].v).trim() : '—',
+          jug4:   cols[4]?.v ? String(cols[4].v).trim() : '—',
+          score,
+          estado: cols[6]?.v ? String(cols[6].v) : '',
+        });
+      }
+
+      players.sort((a,b) => a.score - b.score);
+      renderPodium(players);
+      renderTable(players);
+    } catch(err) {
+      document.getElementById('leaderboard-body').innerHTML =
+        '<div class="loading-msg">⚠️ No se pudieron cargar los datos.<br>Verificá que el Sheet sea público (Ver → Compartir → Cualquier persona con el link).</div>';
+    }
+  }
+
+  function renderPodium(players) {
+    [
+      [0,'pod-name-1','pod-score-1','pod-estado-1'],
+      [1,'pod-name-2','pod-score-2','pod-estado-2'],
+      [2,'pod-name-3','pod-score-3','pod-estado-3'],
+    ].forEach(([idx,nId,sId,eId]) => {
+      const p = players[idx];
+      document.getElementById(nId).textContent = p ? p.name : '—';
+      document.getElementById(sId).textContent = p ? fmtScore(p.score) : '—';
+      document.getElementById(eId).innerHTML   = p ? estadoBadge(p.estado) : '';
+    });
+  }
+
+  function renderTable(players) {
+    const body = document.getElementById('leaderboard-body');
+    if (!players.length) { body.innerHTML = '<div class="loading-msg">Sin datos.</div>'; return; }
+    body.innerHTML = '';
+
+    players.forEach((p, i) => {
+      const pos  = i + 1;
+      const elim = p.estado.includes('ELIM') || p.estado.includes('❌');
+
+      const row = document.createElement('div');
+      row.className = `player-row${pos===1?' leader':''}${elim?' eliminado':''}`;
+      row.innerHTML = `
+        <div class="pos-num${pos<=3?' top':''}">${pos}</div>
+        <div class="name-cell">${p.name}${estadoBadge(p.estado)}</div>
+        <div class="score-cell">${fmtScore(p.score)}</div>
+        <div class="jug-cell" title="${p.jug1}">${p.jug1.split(' ').pop()}</div>
+        <div class="jug-cell" title="${p.jug2}">${p.jug2.split(' ').pop()}</div>
+        <div class="jug-cell" title="${p.jug3}">${p.jug3.split(' ').pop()}</div>
+        <div class="jug-cell" title="${p.jug4}">${p.jug4.split(' ').pop()}</div>
+      `;
+
+      const detail = document.createElement('div');
+      detail.className = 'detail-panel';
+      detail.innerHTML = `
+        <div class="detail-name">${p.name}</div>
+        <div class="detail-estado-txt">${p.estado || 'En curso'}</div>
+        <div class="detail-jugadores">
+          ${[p.jug1, p.jug2, p.jug3, p.jug4].map((j,ri) => `
+            <div class="detail-jug-card">
+              <div class="detail-jug-label">Jugador ${ri+1}</div>
+              <div class="detail-jug-name">${j}</div>
+            </div>`).join('')}
+        </div>
+      `;
+
+      row.addEventListener('click', () => {
+        const open = detail.classList.contains('open');
+        document.querySelectorAll('.detail-panel').forEach(d => d.classList.remove('open'));
+        document.querySelectorAll('.player-row').forEach(r => r.classList.remove('selected'));
+        if (!open) { detail.classList.add('open'); row.classList.add('selected'); }
+      });
+
+      body.appendChild(row);
+      body.appendChild(detail);
+    });
+  }
+
+  fetchData();
+  setInterval(fetchData, 60000);
+</script>
+</body>
+</html>
